@@ -16,7 +16,8 @@ describe('Basic Tests', () => {
             // Way 3
         cy.get('[data-e2e=header-signup-button]')
 
-        cy.get('[data-e2e=header-signup-button]').click()
+            // if we want to click the any button we use this type of get 
+        // cy.get('[data-e2e=header-signup-button]').click()
 
 
 
@@ -27,5 +28,21 @@ describe('Basic Tests', () => {
         cy.get('div#not-rendered-content').should('not.exist')
 
 
+        //// cy.should
+
+        cy.contains('Start Learning with Free').should('have.text', 'Start Learning with Free Courses')
+
+
+    })
+
+    it('View port', () => {
+        cy.viewport(1280,720)
+        // cy.viewport('ipad-2')
+        cy.visit('https://google.com')
+    })
+
+    it('View port for mobile', () => {
+        cy.viewport('iphone-xr')
+        cy.visit('https://google.com')
     })
 })
